@@ -1,0 +1,118 @@
+﻿<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ExpandSortPOC.Models.v1.Store" Alias="Self" Provider="Devart.Data.Oracle" ProviderManifestToken="Oracle, 12.1.0.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:devart="http://devart.com/schemas/edml/StorageSchemaExtensions/1.0" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ExpandSortEntitiesStoreContainer">
+          <EntitySet Name="POC_CNTRIES" EntityType="ExpandSortPOC.Models.v1.Store.POC_CNTRY" store:Type="Tables" Schema="IEP_USER" Table="POC_CNTRY" />
+          <EntitySet Name="POC_SUBJECTs" EntityType="ExpandSortPOC.Models.v1.Store.POC_SUBJECT" store:Type="Tables" Schema="IEP_USER" Table="POC_SUBJECT" />
+        </EntityContainer>
+        <EntityType Name="POC_CNTRY">
+          <Key>
+            <PropertyRef Name="CNTRY_ID" />
+          </Key>
+          <Property Name="CNTRY_ID" Type="decimal" Nullable="false" />
+          <Property Name="CLNCL_ID" Type="VARCHAR2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="POC_SUBJECT">
+          <Key>
+            <PropertyRef Name="SITE_ID" />
+            <PropertyRef Name="CLNCL_ID" />
+          </Key>
+          <Property Name="SITE_ID" Type="decimal" Nullable="false" />
+          <Property Name="CLNCL_ID" Type="VARCHAR2" Nullable="false" MaxLength="50" />
+          <Property Name="CNTRY_ID" Type="decimal" Nullable="false" />
+          <Property Name="SUBJ_ENTR_SCRNG" Type="decimal" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ExpandSortPOC.Models.v1" Alias="Self" d4p1:ViewGeneration="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:devart="http://devart.com/schemas/edml/ConceptualSchemaExtensions/1.0" xmlns:ed="http://devart.com/schemas/EntityDeveloper/1.0" annotation:UseStrongSpatialTypes="false" xmlns:d4p1="http://devart.com/schemas/edml/ConceptualSchemaExtensions/1.0" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ExpandSortEntities" annotation:LazyLoadingEnabled="true" ed:Guid="96630890-99c2-4645-b520-6e8645b57b79">
+          <EntitySet Name="PocCntry" EntityType="ExpandSortPOC.Models.v1.PocCntry" />
+          <EntitySet Name="PocSubject" EntityType="ExpandSortPOC.Models.v1.PocSubject" />
+          <AssociationSet Name="PocCntry_PocSubjectSet" Association="ExpandSortPOC.Models.v1.PocCntry_PocSubject">
+            <End Role="PocCntry" EntitySet="PocCntry" />
+            <End Role="PocSubject" EntitySet="PocSubject" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="PocCntry" ed:Guid="2ff2d1db-9f15-42ff-b577-345a55a027c4">
+          <Key>
+            <PropertyRef Name="CntryId" />
+          </Key>
+          <Property Name="CntryId" Type="Decimal" Nullable="false" ed:ValidateRequired="true" ed:Guid="d4932ba8-033e-488a-9927-03237ab2dd12" />
+          <Property Name="ClnclId" Type="String" MaxLength="50" ed:ValidateMaxLength="50" ed:ValidateRequired="false" ed:Guid="71d110c5-c762-4b1f-86d6-b2beb438a53a" />
+          <NavigationProperty Name="PocSubject" Relationship="ExpandSortPOC.Models.v1.PocCntry_PocSubject" FromRole="PocCntry" ToRole="PocSubject" ed:Guid="3cbd6fd4-c052-46b8-a7a3-1bf22fcd2345" />
+        </EntityType>
+        <EntityType Name="PocSubject" ed:Guid="0914efa4-301a-43ff-8443-80cb299b50bf">
+          <Key>
+            <PropertyRef Name="SiteId" />
+            <PropertyRef Name="ClnclId" />
+          </Key>
+          <Property Name="SiteId" Type="Decimal" Nullable="false" ed:ValidateRequired="true" ed:Guid="3a5eabc2-cc07-4cff-9861-39907345232b" />
+          <Property Name="ClnclId" Type="String" Nullable="false" MaxLength="50" ed:ValidateMaxLength="50" ed:ValidateRequired="true" ed:Guid="33d9c1e0-f79b-43eb-985c-8990798b1e2b" />
+          <Property Name="CntryId" Type="Decimal" Nullable="false" ed:ValidateRequired="true" ed:Guid="4558b207-f6cc-4491-bfac-983e701fac56" />
+          <Property Name="SubjEntrScrng" Type="Decimal" ed:ValidateRequired="false" ed:Guid="9a66411e-8b79-4d8c-b50a-03f75e8b6bbc" />
+          <NavigationProperty Name="PocCntry" Relationship="ExpandSortPOC.Models.v1.PocCntry_PocSubject" FromRole="PocSubject" ToRole="PocCntry" ed:Guid="1464889e-3ae6-45e7-93f2-44a401b0f708" />
+        </EntityType>
+        <Association Name="PocCntry_PocSubject" ed:Guid="0f5efb49-2232-49a2-b0d6-2ddbf917520a">
+          <End Role="PocCntry" Type="ExpandSortPOC.Models.v1.PocCntry" Multiplicity="1" />
+          <End Role="PocSubject" Type="ExpandSortPOC.Models.v1.PocSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PocCntry">
+              <PropertyRef Name="CntryId" />
+            </Principal>
+            <Dependent Role="PocSubject">
+              <PropertyRef Name="CntryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- MSL content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ExpandSortEntitiesStoreContainer" CdmEntityContainer="ExpandSortEntities">
+          <EntitySetMapping Name="PocCntry">
+            <EntityTypeMapping TypeName="ExpandSortPOC.Models.v1.PocCntry">
+              <MappingFragment StoreEntitySet="POC_CNTRIES">
+                <ScalarProperty Name="CntryId" ColumnName="CNTRY_ID" />
+                <ScalarProperty Name="ClnclId" ColumnName="CLNCL_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PocSubject">
+            <EntityTypeMapping TypeName="ExpandSortPOC.Models.v1.PocSubject">
+              <MappingFragment StoreEntitySet="POC_SUBJECTs">
+                <ScalarProperty Name="SiteId" ColumnName="SITE_ID" />
+                <ScalarProperty Name="ClnclId" ColumnName="CLNCL_ID" />
+                <ScalarProperty Name="CntryId" ColumnName="CNTRY_ID" />
+                <ScalarProperty Name="SubjEntrScrng" ColumnName="SUBJ_ENTR_SCRNG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <edmx:Diagrams>
+      <Diagram Name="Main" />
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

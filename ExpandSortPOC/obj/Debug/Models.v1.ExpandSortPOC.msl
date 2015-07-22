@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ExpandSortEntitiesStoreContainer" CdmEntityContainer="ExpandSortEntities">
+    <EntitySetMapping Name="PocCntry">
+      <EntityTypeMapping TypeName="ExpandSortPOC.Models.v1.PocCntry">
+        <MappingFragment StoreEntitySet="POC_CNTRIES">
+          <ScalarProperty Name="CntryId" ColumnName="CNTRY_ID" />
+          <ScalarProperty Name="ClnclId" ColumnName="CLNCL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PocSubject">
+      <EntityTypeMapping TypeName="ExpandSortPOC.Models.v1.PocSubject">
+        <MappingFragment StoreEntitySet="POC_SUBJECTs">
+          <ScalarProperty Name="SiteId" ColumnName="SITE_ID" />
+          <ScalarProperty Name="ClnclId" ColumnName="CLNCL_ID" />
+          <ScalarProperty Name="CntryId" ColumnName="CNTRY_ID" />
+          <ScalarProperty Name="SubjEntrScrng" ColumnName="SUBJ_ENTR_SCRNG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

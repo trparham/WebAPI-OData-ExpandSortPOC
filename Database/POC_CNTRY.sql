@@ -1,0 +1,6 @@
+SET DEFINE OFF;
+Insert into IEP_USER.POC_CNTRY
+   (CNTRY_ID, CLNCL_ID)
+ Values
+   (-101, '-12117');
+COMMIT;

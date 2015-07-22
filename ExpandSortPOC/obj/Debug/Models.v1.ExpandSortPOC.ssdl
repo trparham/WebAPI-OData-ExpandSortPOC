@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ExpandSortPOC.Models.v1.Store" Alias="Self" Provider="Devart.Data.Oracle" ProviderManifestToken="Oracle, 12.1.0.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:devart="http://devart.com/schemas/edml/StorageSchemaExtensions/1.0" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ExpandSortEntitiesStoreContainer">
+    <EntitySet Name="POC_CNTRIES" EntityType="ExpandSortPOC.Models.v1.Store.POC_CNTRY" store:Type="Tables" Schema="IEP_USER" Table="POC_CNTRY" />
+    <EntitySet Name="POC_SUBJECTs" EntityType="ExpandSortPOC.Models.v1.Store.POC_SUBJECT" store:Type="Tables" Schema="IEP_USER" Table="POC_SUBJECT" />
+  </EntityContainer>
+  <EntityType Name="POC_CNTRY">
+    <Key>
+      <PropertyRef Name="CNTRY_ID" />
+    </Key>
+    <Property Name="CNTRY_ID" Type="decimal" Nullable="false" />
+    <Property Name="CLNCL_ID" Type="VARCHAR2" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="POC_SUBJECT">
+    <Key>
+      <PropertyRef Name="SITE_ID" />
+      <PropertyRef Name="CLNCL_ID" />
+    </Key>
+    <Property Name="SITE_ID" Type="decimal" Nullable="false" />
+    <Property Name="CLNCL_ID" Type="VARCHAR2" Nullable="false" MaxLength="50" />
+    <Property Name="CNTRY_ID" Type="decimal" Nullable="false" />
+    <Property Name="SUBJ_ENTR_SCRNG" Type="decimal" />
+  </EntityType>
+</Schema>
