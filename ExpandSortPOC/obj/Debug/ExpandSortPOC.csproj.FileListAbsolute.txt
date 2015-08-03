@@ -44,9 +44,11 @@ C:\Users\RMX7949\documents\visual studio 2013\Projects\ExpandSortPOC\ExpandSortP
 C:\Users\RMX7949\documents\visual studio 2013\Projects\ExpandSortPOC\ExpandSortPOC\bin\System.Spatial.xml
 C:\Users\RMX7949\documents\visual studio 2013\Projects\ExpandSortPOC\ExpandSortPOC\bin\System.Web.Helpers.xml
 C:\Users\RMX7949\documents\visual studio 2013\Projects\ExpandSortPOC\ExpandSortPOC\bin\System.Web.Http.xml
+C:\Users\RMX7949\documents\visual studio 2013\Projects\ExpandSortPOC\ExpandSortPOC\bin\System.Web.Http.OData.pdb
 C:\Users\RMX7949\documents\visual studio 2013\Projects\ExpandSortPOC\ExpandSortPOC\bin\System.Web.Http.OData.xml
 C:\Users\RMX7949\documents\visual studio 2013\Projects\ExpandSortPOC\ExpandSortPOC\bin\System.Web.Http.WebHost.xml
 C:\Users\RMX7949\documents\visual studio 2013\Projects\ExpandSortPOC\ExpandSortPOC\bin\System.Web.Mvc.xml
+C:\Users\RMX7949\documents\visual studio 2013\Projects\ExpandSortPOC\ExpandSortPOC\bin\System.Web.OData.pdb
 C:\Users\RMX7949\documents\visual studio 2013\Projects\ExpandSortPOC\ExpandSortPOC\bin\System.Web.OData.xml
 C:\Users\RMX7949\documents\visual studio 2013\Projects\ExpandSortPOC\ExpandSortPOC\bin\System.Web.Razor.xml
 C:\Users\RMX7949\documents\visual studio 2013\Projects\ExpandSortPOC\ExpandSortPOC\bin\System.Web.WebPages.xml

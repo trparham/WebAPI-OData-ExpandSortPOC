@@ -29,7 +29,7 @@ namespace Lilly.Services.ClinicalData.Controllers.OData4.v1
         /// <param name="key">Primary key for PocCntry</param>
         /// <returns>A single PocCntry</returns>
         [EnableQuery(AllowedQueryOptions = AllowedQueryOptions.All, MaxExpansionDepth = 5, PageSize = PocCntryDelegate.PageSize)]
-        public SingleResult<PocCntry> GetStudyCountry([FromODataUri] decimal key)
+        public PocCntry GetStudyCountry([FromODataUri] decimal key)
         {
             return PocCntryDelegate.GetPocCntry(key);
         }
